@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+
+<html>
+  <head>
+    <title>HTML CSS CHALLENGE</title>
+
+    <style type="text/css">
+      #container {
+        width: 70%;
+        height: 200px;
+        border: 2px solid black;
+        overflow-wrap: normal;
+      }
+
+    </style>
+
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+    <script language="javascript" type="text/javascript">
+      $( document ).ready(function() {
+        $("#run").click(function(e) {
+          e.preventDefault();
+          $("#container").empty();
+          const numberStr = $('#number').val();
+          const number = parseInt(numberStr);
+
+          for (let i = 0; i < number; i++) {
+            const sizeStr = $('#size').val();
+            const size = parseInt(sizeStr);
+            const $square = (`<div class="square" style="width:${size}px; height: ${size}px; border: 1px solid black"}></div>`);
+            $($square).appendTo("#container");
+          }
+          $('input').val('');
+        });
+
+        $("#reset").click(function(e) {
+          e.preventDefault();
+          $("#container").empty();
+        });
+      });
+
+    </script>
+
+  </head>
+  <body>
+
+    <div id="container"></div>
+
+    <form>
+      <label>Number:</label><input id="number" type="text"><br>
+      <label>Size:</label><input id="size" type="text"><br>
+      <button id="run">Run</button><br>
+      <button id="reset">Reset</button><br>
+    </form>
+
+  </body>
+</html>
